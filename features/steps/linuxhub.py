@@ -31,4 +31,3 @@ def step_impl(context, text):
     )
     assert context.browser.find_element_by_xpath(
         '//*[contains(text(), "%s")]' % text)
-    context.browser.quit()
