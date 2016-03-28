@@ -1,5 +1,4 @@
 from behave import given, then
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -7,8 +6,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 @given("website '{url}'")
 def step_impl(context, url):
-    context.browser = webdriver.Firefox()
-    context.browser.maximize_window()
     context.browser.get('http://linuxhub.ru')
 
 
