@@ -1,12 +1,7 @@
-from behave import given, then
+from behave import then
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-
-@given("website '{url}'")
-def step_impl(context, url):
-    context.browser.get('http://linuxhub.ru')
 
 
 @then("input text '{text}' and click search")
