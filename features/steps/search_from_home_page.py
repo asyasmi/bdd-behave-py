@@ -4,7 +4,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
-@then("input text '{text}' and click search")
+@then("input text '{text}' and click search")  # NOQA
 def step_impl(context, text):
     WebDriverWait(context.browser, 10).until(
         EC.element_to_be_clickable((By.ID, 'keywords'))
@@ -18,7 +18,7 @@ def step_impl(context, text):
     context.browser.find_element_by_xpath('//button').click()
 
 
-@then("page include text '{text}'")
+@then("page include text '{text}'")  # NOQA
 def step_impl(context, text):
     WebDriverWait(context.browser, 10).until(
         EC.presence_of_element_located(
