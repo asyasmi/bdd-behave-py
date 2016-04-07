@@ -1,4 +1,10 @@
+import os
 from selenium import webdriver
+
+RUNTIME_DIR = os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))
+) + '/runtime/'
+SCR_EXT = '.png'
 
 
 def before_feature(context, feature):
@@ -8,7 +14,10 @@ def before_feature(context, feature):
 
 def after_step(context, step):
     if step.status == "failed":
-        screenshot = context.scenario.name + " - " + step.name + ".png"
+        if not os.path.exists(RUNTIME_DIR):
+            os.mkdir(RUNTIME_DIR)
+        screenshot = RUNTIME_DIR + \
+            context.scenario.name + " - " + step.name + SCR_EXT
         context.browser.save_screenshot(screenshot)
         print("Screenshot saved to file: %s" % screenshot)
 
