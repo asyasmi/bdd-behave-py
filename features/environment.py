@@ -8,7 +8,7 @@ RUNTIME_DIR = os.path.join(
 SCR_EXT = '.png'
 
 
-def before_feature(context, feature):
+def before_all(context):
     context.browser = webdriver.Firefox()
     context.browser.maximize_window()
 
