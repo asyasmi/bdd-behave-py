@@ -9,7 +9,16 @@ SCR_EXT = '.png'
 
 
 def before_all(context):
-    context.browser = webdriver.Firefox()
+    # context.browser = webdriver.Firefox()
+    desired_capabilities = webdriver.DesiredCapabilities.FIREFOX
+    desired_capabilities['version'] = 'latest'
+    desired_capabilities['platform'] = 'LINUX'
+    desired_capabilities['name'] = 'Testing Selenium with Behave'
+
+    context.browser = webdriver.Remote(
+        desired_capabilities=desired_capabilities,
+        command_executor="http://localhost:4444/wd/hub"
+    )
     context.browser.maximize_window()
 
 
