@@ -1,11 +1,18 @@
 import os
+import time
 import logging
 from selenium import webdriver
 from behave.log_capture import capture
 
 GRID_HUB_URL = os.environ.get('GRID_HUB_URL')
 RUNTIME_DIR = os.path.join(
-    os.path.abspath(os.path.join(__file__, os.pardir, os.pardir, 'runtime')))
+    os.path.abspath(
+        os.path.join(
+            __file__, os.pardir, os.pardir,
+            'runtime', time.strftime('%d.%m.%Y - %R')
+        )
+    )
+)
 SCR_EXT = '.png'
 
 
