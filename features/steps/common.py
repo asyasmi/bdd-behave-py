@@ -1,9 +1,11 @@
+import os
 from behave import given
 
-
+base_url = os.environ.get('BASE_URL', 'http://linuxhub.ru').rstrip('/')
+assert base_url.startswith(('http://', 'https://')), "Protocol isn't specified"
 pages = {
-    'home': 'http://linuxhub.ru',
-    'links': 'http://linuxhub.ru/links.php'
+    'home': base_url,
+    'links': base_url + '/links.php'
 }
 
 
