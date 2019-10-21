@@ -1,14 +1,14 @@
 import os
 from behave import given
 
-base_url = os.environ.get('BASE_URL', 'http://linuxhub.ru').rstrip('/')
+base_url = os.environ.get('BASE_URL', 'https://github.com').rstrip('/')
 assert base_url.startswith(('http://', 'https://')), "Protocol isn't specified"
 pages = {
     'home': base_url,
-    'links': base_url + '/links.php'
+    'about': base_url + '/about'
 }
 
 
 @given("user on '{page}' page")
-def step_impl(context, page):
+def user_on_page(context, page):
     context.browser.get(pages[page])
