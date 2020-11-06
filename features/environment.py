@@ -18,7 +18,7 @@ SCR_EXT = '.png'
 
 def before_all(context):
     if GRID_HUB_URL is None:
-        context.browser = webdriver.Firefox()
+        context.browser = webdriver.Chrome()
     else:
         desired_capabilities = webdriver.DesiredCapabilities.FIREFOX
         context.browser = webdriver.Remote(
